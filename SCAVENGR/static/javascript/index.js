@@ -42,15 +42,20 @@ $(document).ready(function() {
                 break;
 
         }
-        const exists = text.match(regex);
-        if(exists){
-            $('#result').text("Likely AI");
-            $('#percentage').text(randInt(65,99) + "%");
-        }
-        else{
-            $('#result').text("Unlikely AI");
-            $('#percentage').text(randInt(1,35) + "%");
-        }
+        const loadingWheel = document.getElementById('loadingWheel');
+        loadingWheel.style.display = 'block';
+        setTimeout(() => {
+            loadingWheel.style.display = 'none';
+            const exists = text.match(regex);
+            if(exists){
+                $('#result').text("Likely AI");
+                $('#percentage').text(randInt(65,99) + "%");
+            }
+            else{
+                $('#result').text("Unlikely AI");
+                $('#percentage').text(randInt(1,35) + "%");
+            }
+        }, 3000);
         //display result
     });
 });
