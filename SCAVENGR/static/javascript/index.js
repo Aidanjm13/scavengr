@@ -45,7 +45,6 @@ $(document).ready(function() {
         const loadingWheel = document.getElementById('loadingWheel');
         loadingWheel.style.display = 'block';
         setTimeout(() => {
-            loadingWheel.style.display = 'none';
             const exists = text.match(regex);
             if(exists){
                 $('#result').text("Likely AI");
@@ -55,6 +54,7 @@ $(document).ready(function() {
                 $('#result').text("Unlikely AI");
                 $('#percentage').text(randInt(1,35) + "%");
             }
+            loadingWheel.style.display = 'none';
         }, 3000);
         //display result
     });
